@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerNetwork : NetworkBehaviour
 {
+    //private NetworkVariable<int> randomNumber;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +25,5 @@ public class PlayerNetwork : NetworkBehaviour
 
         float movesSpeed = 3f;
         transform.position += moveDir * movesSpeed * Time.deltaTime;  
-    }
+    } 
 }
