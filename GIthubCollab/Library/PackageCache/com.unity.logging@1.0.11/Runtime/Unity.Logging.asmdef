@@ -1,0 +1,33 @@
+{
+    "name": "Unity.Logging",
+    "rootNamespace": "",
+    "references": [
+        "Unity.Burst",
+        "Unity.Collections"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "Unity",
+            "expression": "2022.2.0a15",
+            "define": "UNITY_CONSOLE_API"
+        },
+        {
+            "name": "Unity",
+            "expression": "2023.1.0a1",
+            "define": "UNITY_HAS_UTF8_VIEW"
+        },
+        {
+            "name": "Unity",
+            "expression": "2023.2.0a1",
+            "define": "UNITY_STARTUP_LOGS_API"
+        }
+    ],
+    "noEngineReferences": false
+}

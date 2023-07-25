@@ -390,6 +390,7 @@
 -r:"Library/Bee/artifacts/200b0aEDbg.dag/Unity.Services.Core.Analytics.ref.dll"
 -r:"Library/Bee/artifacts/200b0aEDbg.dag/Unity.Services.Core.Environments.ref.dll"
 -r:"Library/Bee/artifacts/200b0aEDbg.dag/Unity.Services.Core.ref.dll"
+-r:"Library/Bee/artifacts/200b0aEDbg.dag/Unity.Services.Lobbies.ref.dll"
 -r:"Library/Bee/artifacts/200b0aEDbg.dag/Unity.Services.QoS.ref.dll"
 -r:"Library/Bee/artifacts/200b0aEDbg.dag/Unity.Services.Relay.ref.dll"
 -r:"Library/Bee/artifacts/200b0aEDbg.dag/Unity.TextMeshPro.Editor.ref.dll"

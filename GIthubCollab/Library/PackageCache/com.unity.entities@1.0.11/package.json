@@ -1,0 +1,37 @@
+{
+  "name": "com.unity.entities",
+  "displayName": "Entities",
+  "version": "1.0.11",
+  "unity": "2022.2",
+  "unityRelease": "15f1",
+  "dependencies": {
+    "com.unity.burst": "1.8.4",
+    "com.unity.serialization": "3.1.1",
+    "com.unity.collections": "2.1.4",
+    "com.unity.mathematics": "1.2.6",
+    "com.unity.modules.assetbundle": "1.0.0",
+    "com.unity.modules.audio": "1.0.0",
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.nuget.mono-cecil": "1.11.4",
+    "com.unity.scriptablebuildpipeline": "1.20.2",
+    "com.unity.profiling.core": "1.0.2"
+  },
+  "description": "The Entities package provides a modern Entity Component System (ECS) implementation with a basic set of systems and components made for Unity.",
+  "keywords": [
+    "entities",
+    "dots",
+    "unity"
+  ],
+  "_upm": {
+    "changelog": "### Added\n\n* The new `EntityQueryOptions.IncludeMetaChunks` flag allows queries to match archetypes with the `ChunkHeader` component (which is excluded from queries by default).\n\n### Changed\n\n* Idiomatic `foreach` and `Entities.ForEach` will now only sync jobs read/writing to component data the foreach will iterate over when the underlying EntityQuery used by the foreach indeed has entities to iterate over. Previously jobs would be unilaterally sync'd when using these constructs which could create stalls on the main thread on jobs that did not need to occur.\n* Significantly improved the performance of `EntityCommandBuffer.AsParallelWriter()` and `EntityCommandBuffer.Dispose()`.\n* Change component attribute name from `Alignment in Chunk` to `Component Type Alignment in Chunk` when displaying component attributes in Inspector window.\n* LinkedEntityGroup internal buffer capacity set to 1.\n\n### Deprecated\n\n* `EntityCommandBuffer` methods which target an `EntityQuery` now take a new `EntityQueryCaptureMode` parameter, used to specify whether the provided query should be evaluated at record time (immediately) or at playback time (deferred). `.AtRecord` matches the existing behavior for compatibility, but `.AtPlayback` is up to 200x faster for some commands. The variants which do not include this extra parameter have been deprecated, but their existing behavior and semantics are preserved. The safe and easy fix is to add `EntityQueryCaptureMode.AtRecord` to all call sites; however, users are encouraged to review all call sites to see if the faster `.AtPlayback` mode would be appropriate.\n\n### Removed\n\n* Alignment attribute is removed when displaying component attributes in Inspector window.\n\n### Fixed\n\n* Updated code samples in documentation for building content archives and content delivery.\n* Systems window's tree view indents are now enforced to the proper width.\n* Systems window's world and namespace columns are now left aligned.\n* You now can register generic ISystems so that they can be discovered and created automatically with world creation, or created manually via CreateSystem. Register each generic instance of them with `[assembly: RegisterGenericSystemType(typeof(YourGenericSystem<YourParticularType>))]` to allow such usage.\n* Entities Hierarchy: Fix an exception happening when dragging a gameobject over a subscene node.\n* Entities Hierarchy: Disable Empty Scene menu item when creating new subscenes where the main scene is not saved.\n* Entities Hierarchy: fix a missing dispose in change collectors.\n* Current selection is cleared if an object is selected outside Systems window.\n* Current selection is cleared if an object is selected outside Components window.\n* Current selection is cleared from Components window when entering/exiting play mode.\n* Native memory leak when creating EntityQuery with EntityManager.CreateEntityQuery\n* Ensures both readers and writer dependencies are completed when accessing read/write components in certain code paths\n* Fixed a crash happening in `EntityCommandBuffer.Dispose` due to a use-after-free bug\n* `TypeManager` methods such as `GetSystemName` previously could crash after adding new system type information at runtime due to the `TypeManager` referring to invalid memory.\n* Bursted generic ISystems defined in one assembly and registered in another no longer break compilation."
+  },
+  "upmCi": {
+    "footprint": "b216e2756bc6a35c38275de6d8b1679dbae69b0c"
+  },
+  "documentationUrl": "https://docs.unity3d.com/Packages/com.unity.entities@1.0/manual/index.html",
+  "repository": {
+    "url": "https://github.cds.internal.unity3d.com/unity/dots.git",
+    "type": "git",
+    "revision": "81c21934f16a49fc5f826187f07aaea4728d63c3"
+  }
+}

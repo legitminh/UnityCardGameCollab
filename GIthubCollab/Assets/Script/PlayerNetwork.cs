@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerNetwork : NetworkBehaviour
 {
     //private NetworkVariable<int> randomNumber = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    [SerializeField] Transform serverBall;
     public struct NetworkData : INetworkSerializable
     {
         public int _int;
@@ -32,7 +33,11 @@ public class PlayerNetwork : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (IsOwner)
+        {
+            Transform spawnedObjectTransform = Instantiate(serverBall, new Vector3(3,0,0), Quaternion.identity);
+            spawnedObjectTransform.GetComponent<NetworkObject>().Spawn(true);
+        }   
     }
     public override void OnNetworkSpawn()
     {
@@ -53,27 +58,27 @@ public class PlayerNetwork : NetworkBehaviour
         if (Input.GetKey(KeyCode.S)) moveDir.y = -1f;
         if (Input.GetKey(KeyCode.A)) moveDir.x = -1f;
         if (Input.GetKey(KeyCode.D)) moveDir.x = +1f;
-        if (Input.GetKey(KeyCode.R))
-        {
-            randomNumber.Value = new NetworkData {
-                _int = Random.Range(0, 100),
-                _bool = false,
 
-            };            
-        }
-        if (Input.anyKeyDown)
-        {
-            randomNumber.Value = new NetworkData
-            {
-                _int = randomNumber.Value._int.
-                _bool = randomNumber.Value._bool,
-                _keyPressed = Input.GetKeyDown
 
-            };
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            TestServerRpc();  
+            //randomNumber.Value = new NetworkData {
+            //    _int = Random.Range(0, 100),
+            //    _bool = false,
+            //    _keyPressed = randomNumber.Value._keyPressed,
+
+            //};            
         }
 
 
         float movesSpeed = 3f;
         transform.position += moveDir * movesSpeed * Time.deltaTime;  
-    } 
+    }
+    [ServerRpc]
+    private void TestServerRpc()
+    {
+        Debug.Log("TestServerRpc " + OwnerClientId);
+    }
 }

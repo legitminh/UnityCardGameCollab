@@ -54,14 +54,23 @@
   </type>
  </assembly>
  <assembly fullname="UnityEngine.CoreModule">
+  <type fullname="Unity.Baselib.LowLevel.Binding">
+   <method name="Baselib_RegisteredNetwork_Socket_UDP_ProcessRecv_Injected"/>
+  </type>
+  <type fullname="Unity.Baselib.LowLevel.Binding">
+   <method name="Baselib_RegisteredNetwork_Socket_UDP_DequeueRecv_Injected"/>
+  </type>
+  <type fullname="Unity.Baselib.LowLevel.Binding">
+   <method name="Baselib_RegisteredNetwork_Socket_UDP_ScheduleRecv_Injected"/>
+  </type>
   <type fullname="Unity.Collections.LowLevel.Unsafe.UnsafeUtility">
    <method name="MallocTracked"/>
   </type>
-  <type fullname="Unity.Jobs.LowLevel.Unsafe.JobsUtility">
-   <method name="GetWorkStealingRange"/>
-  </type>
   <type fullname="Unity.Collections.LowLevel.Unsafe.UnsafeUtility">
    <method name="FreeTracked"/>
+  </type>
+  <type fullname="Unity.Jobs.LowLevel.Unsafe.JobsUtility">
+   <method name="GetWorkStealingRange"/>
   </type>
   <type fullname="UnityEngine.Jobs.TransformAccessArray">
    <method name="GetSortedToUserIndex"/>
@@ -74,15 +83,6 @@
   </type>
   <type fullname="UnityEngine.Jobs.TransformAccess">
    <method name="GetLocalToWorldMatrix"/>
-  </type>
-  <type fullname="Unity.Baselib.LowLevel.Binding">
-   <method name="Baselib_RegisteredNetwork_Socket_UDP_ProcessRecv_Injected"/>
-  </type>
-  <type fullname="Unity.Baselib.LowLevel.Binding">
-   <method name="Baselib_RegisteredNetwork_Socket_UDP_DequeueRecv_Injected"/>
-  </type>
-  <type fullname="Unity.Baselib.LowLevel.Binding">
-   <method name="Baselib_RegisteredNetwork_Socket_UDP_ScheduleRecv_Injected"/>
   </type>
   <type fullname="Unity.Baselib.LowLevel.Binding">
    <method name="Baselib_RegisteredNetwork_Socket_UDP_ProcessSend_Injected"/>

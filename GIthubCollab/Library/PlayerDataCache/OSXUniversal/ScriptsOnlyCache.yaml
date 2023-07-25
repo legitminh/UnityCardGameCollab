@@ -1368,4 +1368,4 @@ ScriptsOnlyBuild:
   platform: 2
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: /Volumes/Data/games/Uni/GithubCollab/GIthubCollabBuild.app
+  playerPath: /Volumes/Data/games/Uni/GIthubCollabBuild.app
